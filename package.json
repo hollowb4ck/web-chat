@@ -1,13 +1,11 @@
 {
-  "name": "web-chat",
   "version": "1.0.0",
-  "main": "server.js",
+  "name": "web-chat",
+  "main": "index.js",
+  "license": "MIT",
   "scripts": {
-    "start": "node server.js"
+    "start": "node ."
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.2.1",
     "express": "^4.16.4",
@@ -15,7 +13,5 @@
     "jquery": "^3.3.1",
     "semantic-ui-css": "^2.4.1",
     "simplewebrtc": "^3.0.2"
-  },
-  "devDependencies": {},
-  "description": ""
+  }
 }

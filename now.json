@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "name": "web-chat",
+  "builds": [
+    { "src": "index.js", "use": "@now/node-server" },
+    { "src": "public/js/*.js", "use": "@now/node" },
+    { "src": "public/*.html", "use": "@now/html-minifier" },
+    { "src": "public/css/*.css", "use": "@now/html-minifier" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "index.js" }
+  ]
+}
