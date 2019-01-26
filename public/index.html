@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap/dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap/dist/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <title>Web Chat By Dmitriy</title>
+</head>
+<body>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">
+                    WebRTC Messenger
+                </h1>
+            </div>
+            <div class="col-md-6">
+                <div class="form">
+                    <div>
+                        <label>User Name</label>
+                        <input class="form-control" type="text" placeholder="Enter user name" id="username" name="username">
+                    </div>
+                    <div>
+                        <label>Room Name</label>
+                        <input class="form-control" type="text" placeholder="Enter room name" id="roomName" name="roomName">
+                    </div>
+                    <div class="d-flex justify-content-around chart-form-controls">
+                        <button id="create-room" class="btn btn-warning submit button">Create New Room</button>
+                        <button id="join-room" class="btn btn-primary submit button">Join to Room</button>
+                    </div>
+                </div>
+                <div id="chat"></div>
+            </div>
+            <div class="col-md-6">
+                <h4 class="text-center">Your camera</h4>
+                <img id="local-image" src="images/camera.jpg" alt="">
+                <video id="local-video" autoplay></video>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="remote-videos">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">Remotes Cameras</h4>
+            </div>
+            <div class="col-md-3">
+                <img class="w-100" src="images/camera.jpg" alt="">
+            </div>
+            <div class="col-md-3">
+                <img class="w-100" src="images/camera.jpg" alt="">
+            </div>
+            <div class="col-md-3">
+                <img class="w-100" src="images/camera.jpg" alt="">
+            </div>
+            <div class="col-md-3">
+                <img class="w-100" src="images/camera.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Chat Template -->
+<script id="chat-template" type="text/x-handlebars-template">
+    <h4>Room ID -> <strong>{{ room }}</strong></h4>
+    <div class="chat-content">
+        <div id="chat-content"> </div>
+        <div class="form">
+            <div class="d-flex flex-column field">
+                <label>Post Message</label>
+                <textarea class="w-100" id="post-message" name="post-message"></textarea>
+            </div>
+            <button id="post-btn" class="btn btn-primary margin-top">Send</button>
+        </div>
+    </div>
+</script>
+<!-- Chat Content Template -->
+<script id="chat-content-template" type="text/x-handlebars-template">
+    {{#each messages}}
+    <div class="event">
+        <div class="label">
+            <i class="icon blue user"></i>
+        </div>
+        <div class="content">
+            <div class="d-flex">
+                <strong class="margin-right"><a href="#"> {{ username }}</a> posted on</strong>
+                <div class="date">
+                    {{ postedOn }}
+                </div>
+            </div>
+            <div class="extra text">
+                {{ message }}
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+<!-- Remote Video Template -->
+<script id="remote-video-template" type="text/x-handlebars-template">
+    <div id="{{ id }}" class="four wide column"></div>
+</script>
+<!-- Scripts -->
+<script src="scripts/jquery/dist/jquery.min.js"></script>
+<script src="scripts/handlebars/dist/handlebars.min.js "></script>
+<script src="scripts/simplewebrtc/out/simplewebrtc-with-adapter.bundle.js"></script>
+<script src="scripts/semantic-ui-css/semantic.min.js"></script>
+<script src="scripts/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
