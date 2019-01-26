@@ -13,6 +13,7 @@ window.addEventListener('load', () => {
 
 // Remote Videos
   const remoteVideoTemplate = Handlebars.compile($('#remote-video-template').html());
+  const remoteVideoDemoTemplate = Handlebars.compile($('#remote-video-demo-template').html());
   const remoteVideosEl = $('#remote-videos');
   let remoteVideosCount = 0;
 
@@ -92,7 +93,6 @@ window.addEventListener('load', () => {
       message,
       postedOn: new Date().toLocaleString('ru-RU')
     };
-
     // Send to all
     webrtc.sendToAll('chat', chatMessage);
     // Update message locally
@@ -120,6 +120,12 @@ window.addEventListener('load', () => {
         const message = $('#post-message').val();
         postMessage(message);
       }
+    });
+    $('#disconnect-btn').on('click', () => {
+      formEl.show();
+      remoteVideosEl.empty();
+      remoteVideosEl.html(remoteVideoDemoTemplate);
+      chatEl.empty();
     });
   };
 
