@@ -44,23 +44,25 @@
         </div>
     </div>
 </section>
-<section id="remote-videos">
+<section class="remote-videos">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h4 class="text-center">Remotes Cameras</h4>
             </div>
-            <div class="col-md-3">
-                <img class="w-100" src="images/camera.jpg" alt="">
-            </div>
-            <div class="col-md-3">
-                <img class="w-100" src="images/camera.jpg" alt="">
-            </div>
-            <div class="col-md-3">
-                <img class="w-100" src="images/camera.jpg" alt="">
-            </div>
-            <div class="col-md-3">
-                <img class="w-100" src="images/camera.jpg" alt="">
+            <div  id="remote-videos" class="row">
+                <div class="col-md-3">
+                    <img class="w-100" src="images/camera.jpg" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img class="w-100" src="images/camera.jpg" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img class="w-100" src="images/camera.jpg" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img class="w-100" src="images/camera.jpg" alt="">
+                </div>
             </div>
         </div>
     </div>
@@ -103,7 +105,9 @@
 </script>
 <!-- Remote Video Template -->
 <script id="remote-video-template" type="text/x-handlebars-template">
-    <div id="{{ id }}" class="four wide column"></div>
+    <div class="col-md-3">
+        <div id="{{ id }}" class="four wide column"></div>
+    </div>
 </script>
 <!-- Scripts -->
 <script src="js/jquery.min.js"></script>
